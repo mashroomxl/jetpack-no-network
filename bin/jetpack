@@ -110,10 +110,10 @@ def install_jetty(vendor_dir)
   unzip File.join(vendor_dir, "jetty.zip"), vendor_dir
   # rm File.join(vendor_dir, "jetty.zip")
   bak_jetty_zip = "bak-jetty.zip"
-  mv "#{jetty_dir}/jetty.zip", "#{jetty_dir}/#{bak_jetty_zip}"
+  mv "#{vendor_dir}/jetty.zip", "#{vendor_dir}/#{bak_jetty_zip}"
   mv Dir["#{vendor_dir}/jetty*"].to_a.first, jetty_dir
   rm_rf "#{jetty_dir}/webapps"
-  mv "#{jetty_dir}/#{bak_jetty_zip}", "#{jetty_dir}/jetty.zip"
+  mv "#{vendor_dir}/#{bak_jetty_zip}", "#{vendor_dir}/jetty.zip"
   jetty_dir
 end
 
