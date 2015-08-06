@@ -105,17 +105,17 @@ end
 
 def install_jetty(vendor_dir)
   jetty_dir = File.join(vendor_dir, "jetty")
-  Dir["#{vendor_dir}/jett*"].to_a.each{|f|rm_rf(f)}
-  download @settings.jetty, File.join(vendor_dir, "jetty.zip")
+  # Dir["#{vendor_dir}/jett*"].to_a.each{|f|rm_rf(f)}
+  # download @settings.jetty, File.join(vendor_dir, "jetty.zip")
   unzip File.join(vendor_dir, "jetty.zip"), vendor_dir
-  rm File.join(vendor_dir, "jetty.zip")
+  # rm File.join(vendor_dir, "jetty.zip")
   mv Dir["#{vendor_dir}/jetty*"].to_a.first, jetty_dir
   rm_rf "#{jetty_dir}/webapps"
   jetty_dir
 end
 
 def install_jruby_rack_jar(vendor_dir)
-  download @settings.jruby_rack, File.join(vendor_dir, "jruby-rack.jar")
+  # download @settings.jruby_rack, File.join(vendor_dir, "jruby-rack.jar")
 end
 
 def process_template_files(erb_files)
@@ -157,7 +157,7 @@ overlay_files File.join(@jetpack_dir, "bin_files"), bin_dir
 
 vendor_dir = File.join(@path_to_project, "vendor")
 mkdir_p vendor_dir
-download @settings.jruby, File.join(@path_to_project, @jruby_jar_file)
+# download @settings.jruby, File.join(@path_to_project, @jruby_jar_file)
 
 bundle_install if File.exists?(File.join(@path_to_project, "Gemfile.lock"))
 if @settings.jetty?
