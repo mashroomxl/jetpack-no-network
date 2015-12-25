@@ -14,8 +14,8 @@ module Jetpack
     def initialize(project_dir, user_defined_options)
       defaults = {
         'app_root'                   => File.expand_path(project_dir),
-        'java_binary'                => 'java',
-        'java_options'               => '-Xmx2048m',
+        'java_binary'                => '${JAVA_HOME}/bin/java',
+        'java_options'               => '-Xmx1024m',
         'max_concurrent_connections' => 50,
         'ruby_version'               => 1.9,
         'app_type'                   => 'rails',
@@ -26,7 +26,7 @@ module Jetpack
         'truststore'                 => nil,
         'truststore_password'        => nil,
         'reload_keystore'            => false,
-        'bundle_without'             => %w(test development)
+        'bundle_without'             => %w(noting)
       }
 
       contents = defaults.merge(user_defined_options)
